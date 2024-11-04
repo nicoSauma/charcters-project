@@ -1,0 +1,37 @@
+<form [formGroup]="formulario" (ngSubmit)="addCharacter()" #characterForm="ngForm">
+    <fieldset>
+        <legend>Agregar Personaje</legend>
+        <div>
+            <label for="name">Nombre</label>
+            <input type="name", formControlName="name">
+            @if (formulario.controls['name'].getError('required')){
+                <div>Campo requerido</div>
+            }
+        </div>
+
+        <div>
+            <label for="alias">alias</label>
+            <input type="alias", formControlName="alias">
+            @if (formulario.controls['alias'].getError('required')){
+                <div>Campo requerido</div>
+            }
+        </div>
+
+        <div>
+            <label for="powers">powers</label>
+            <input type="powers", formControlName="powers">
+            @if (formulario.controls['powers'].getError('required')){
+                <div>Campo requerido</div>
+            }
+        </div>
+
+        <div>
+            <label for="descripcion">descripcion</label>
+            <input type="descripcion", formControlName="descripcion">
+            @if (formulario.controls['descripcion'].getError('required')){
+                <div>Campo requerido</div>
+            }
+        </div>
+        <button type="submit" [disabled]="!characterForm.form.valid">Agregar</button>
+    </fieldset>
+</form>
